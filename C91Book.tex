@@ -1,0 +1,89 @@
+\documentclass[12pt,b6book]{book}
+
+\usepackage{xltxtra}
+\setmainfont[Ligatures=TeX]{IPAPMincho}
+\setsansfont{IPAPGothic}
+\setmonofont{IPAGothic}
+\XeTeXlinebreaklocale "ja"
+\usepackage{graphicx}
+%\usepackage[unicode]{hyperref}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+
+\usepackage{listings}
+\lstset{%
+  backgroundcolor={\color[gray]{.85}},%
+  basicstyle={\small},%
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+%  lineskip=-0.5ex%
+}
+\usepackage{verbatim}
+
+\usepackage{ulem}
+
+% myjapanese.sty
+\RequirePackage{xltxtra}
+\def\en#1{{\engrm#1}} % 欧文フォントで出力
+% 日本語を含む段落を行分割するための設定
+\XeTeXlinebreaklocale ``ja''
+\XeTeXlinebreakskip=0pt plus 1pt minus 0.1pt
+\XeTeXlinebreakpenalty=0
+% 半角分戻る
+\def\<{\@ifstar{\zx@hwback\nobreak}{\zx@hwback\relax}}
+\def\zx@hwback#1{\leavevmode#1\hskip-.5em\relax}
+% 簡易レイアウト設定
+\RequirePackage[scale=0.8, margin=1in]{geometry}
+%\RequirePackage{indentfirst}
+\RequirePackage{setspace}
+\setstretch{1}
+\parindent=1em
+
+\begin{document}
+
+\frontmatter
+%% 表紙
+%% \pagenumbering{Alph}
+%%\insertpage{images/KOKORO100.pdf}
+%%%%%%%%%%%%%%\includepdf{images/hyoushi.pdf}
+%%\includegraphics[width=\paperwidth]{images/KOKORO100.png}
+%% \addtocounter{ptc}{1} % nande-
+\tableofcontents
+%% \newpage
+%% 
+%% \newpage
+
+\mainmatter
+
+%% \input{nona7}
+
+%% \input{murata}
+
+\input{atogaki}
+
+\null\vfill
+\section*{奥付}
+\hrule\vskip.5mm\hrule\vskip3mm
+\begin{tabular}{ll}
+  2015/12/31 & 初版発行\\
+  hash: & \href{https://github.com/nna774/C89Book2/tree/3e0c955600ecae2e6549ea95b9c9eee7587ef01c}{3e0c955600ecae2e6549ea95b9c9eee7587ef01c}(ココの変更)\\
+  著作・発行 & NoNameA 774 (nonamea774@nnn77) \\
+  サークル & いっと☆わーくす！ \\
+  メールアドレス & \href{mailto:nonamea774@gmail.com}{\nolinkurl{nonamea774@gmail.com}}\\
+  Web & \url{https://nna774.net/}\\
+  Twitter & @nonamea774\\
+  GPG Key & 0x0C3E3AB2\\
+  fingerprint & 674A 287A 21D2 2431 AD8F \\
+  & D328 AEF3 C3C7 0C3E 3AB2
+\end{tabular}
+\vskip3mm\hrule\vskip3mm
+
+コメント
+
+%% \newpage
+%% 　
+%% \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\includepdf{images/KOKORO100_kaisetsu.pdf}
+
+\end{document}
