@@ -12,7 +12,8 @@
 
 \usepackage{listings}
 \lstset{%
-  backgroundcolor={\color[gray]{.85}},%
+  language=python,%
+  backgroundcolor={\color[gray]{.65}},%
   basicstyle={\small},%
   frame={tb},
   breaklines=true,
@@ -40,6 +41,12 @@
 \setstretch{1}
 \parindent=1em
 
+\newcommand{\centerimage}[1]{
+\begin{center}
+  \makebox[\textwidth]{
+    \includegraphics[width=\textwidth]{#1}
+}\end{center}}
+
 \begin{document}
 
 \frontmatter
@@ -60,7 +67,7 @@
 %% \input{nona7}
 \input{piet-editor}
 
-%% \input{murata}
+\input{nonac91/murata}
 
 \input{atogaki}
 
