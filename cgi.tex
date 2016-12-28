@@ -7,7 +7,7 @@ KMCは今年のエイプリルフールでpietでwebサーバを書いて(描い
 今回はどのようなコードが動いていたか、簡単に見て行きたいと思います。
 
 使われていたサーバは以下のようなソースコードとなっていました。……とここにソースコードの画像をほどんど線のように見えるだろうなと予想しながらも貼ろうとしましたが、
-57286 x 153 の大きさを持ち、\TeX の制限？ で貼ることができませんでした。
+57286 x 153 という大きさのためか、\TeX の制限？ で貼ることができませんでした。
 \url{https://raw.githubusercontent.com/kmc-jp/2016-aplil-fool/master/htmlserver.png}\footnote{\url{https://github.com/kmc-jp/2016-aplil-fool/}にレポジトリがあり、その中にこのコードも含まれています。}
 で見ることができます。
 
@@ -19,15 +19,15 @@ pietの公式ページ？ のサンプル\footnote{\url{http://www.dangermouse.n
 コードの生成を実際行なってるのはこのコードです。
 \url{https://github.com/kmc-jp/2016-aplil-fool/blob/master/bin2piet.py}
 
-レポジトリには簡単な解説が含まれていますので、挙げておきます。
+レポジトリには簡単な解説が含まれているので、その画像を下に引用しておきます。
 \centerimage{images/howItWorks.png}
-「pietは仕様でunicodeしか出力できないのでバイナリを出力するのは難しい」とありますが、
-これはout characteでunicodeで出力するという仕様が定まっている訳ではないので、処理系の問題でしかないように思います。
+補足しておくと、この解説では「pietは仕様でunicodeしか出力できないのでバイナリを出力するのは難しい」とありますが、
+これはout characterでunicodeで出力するという仕様が定まっている訳ではないので、処理系の問題でしかないように思います。
 
-最初にいくつかの制御部分があって、その後巨大なstringをpushしてそれを出す のような基本方針で描かれているようです。
+コードを見ると、最初にいくつかの制御部分があって、その後巨大なstringをpushしてそれを出す のような基本方針で描かれているようです。
 このpietの動作説明コードと思わしきrubyで書かれたコードもあります。\url{https://github.com/kmc-jp/2016-aplil-fool/blob/master/main.rb}
 
-最初の制御部分ですが、branch.png\footnote{\url{https://github.com/kmc-jp/2016-aplil-fool/blob/master/branch.png}}がそのまま埋めこまれているようで、
+最初の制御部分は、branch.png\footnote{\url{https://github.com/kmc-jp/2016-aplil-fool/blob/master/branch.png}}がそのまま埋めこまれているようで、
 以下のようなコードとなっています。
 
 \begin{enumerate}
@@ -45,7 +45,7 @@ httpのリクエストが
 あえて文句をつけるなら、GETされてるのが `/' ではなかった時に451を返すことにはおそらくLegal Reasonsは無いであろうので、
 素直に404を返すべき という事ぐらいでしょうか。
 
-続く赤の縞々の部分ですが、light red、red、dark redの三色で望む大きさの長さ下に延ばし、そこを横切ることでpushを繰り返しています。
+続く赤の縞々の部分では、light red、red、dark redの三色で望む大きさの長さ下に延ばし、そこを横切ることでpushを繰り返しています。
 ここにbase64 encodedされた200.png\footnote{\url{https://github.com/kmc-jp/2016-aplil-fool/blob/master/200.png}}、
 400.png\footnote{\url{https://github.com/kmc-jp/2016-aplil-fool/blob/master/400.png}}、
 451.png\footnote{\url{https://github.com/kmc-jp/2016-aplil-fool/blob/master/451.png}}などや、
@@ -53,16 +53,18 @@ httpのリクエストが
 
 \section{さいごに}
 
-と、ざっと軽くどのようにpietの生成が行なわれているか書いてきましたが、いかがでしょうか。
+と、ざっと軽くどのような動作をしているか書いてきましたが、いかがでしょうか。
+このように、このプログラムにおいてもpietの生成が行われています。
 pietの生成は意外と簡単なので、是非手で描くだけではなく一度挑戦してみてください。
 また、私の作った生成機、piet-automata\footnote{\url{https://github.com/nna774/piet-automata}}もよろしくお願いします。
-これについては、C88で出したペーパー\footnote{\url{https://nna774.net/piet/c88paper.pdf}}、C89で出した本などに解説してたりもするので、
-よろしくお願いします。
+これについては、C88で出したペーパー\footnote{\url{https://nna774.net/piet/c88paper.pdf}}、C89で出した本などで解説してたりもするので、
+そちらもよろしくお願いします。
 
 またもやpietの基礎を前提とした文章を書いてしまってすみません。
-もし見ていないとしたら、この本の中でも何度も紹介していますが、「Pietのエディタを作った話」
+この本の中でも何度も紹介していますが、「Pietのエディタを作った話」
 \url{http://www.slideshare.net/KMC_JP/piet-46068527}
-は一度目を通してくださると嬉しいです。
+には、pietの基礎についてもまとめられていますので、
+まだ読んだことがないという場合は、一度目を通して頂けると幸いです。
 
 ここまで読んで頂いてありがとうございました。
 次回があればまたお会いしましょう。
